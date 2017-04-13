@@ -65,6 +65,12 @@ public class MainScene {
 		eigsBt.setAlignment(Pos.CENTER);
 		
 		Button btEigs = new Button("Eigen Functions");
+		// ---
+		HBox vecBt = new HBox();
+		vecBt.setSpacing(10);
+		vecBt.setAlignment(Pos.CENTER);
+		
+		Button btVec = new Button("Vector Graphing");
 		
 		// Button .setOnAction -----------------------
 		btParse.setOnAction(e -> {
@@ -96,11 +102,15 @@ public class MainScene {
 		btEigs.setOnAction(e -> {
 			primaryStage.setScene(EigsScene.eigsScene(primaryStage));
 		});
+		btVec.setOnAction(e -> {
+			primaryStage.setScene(VectorGUI_1.startVector(primaryStage));
+		});
 		// Button box getChildren().add()
 		parseBt.getChildren().add(btParse);
 		basicArithmeticBt.getChildren().add(btBasicArithmetic);
 		advancedFunctionsBt.getChildren().add(btAdvancedFunctions);
 		eigsBt.getChildren().add(btEigs);
+		vecBt.getChildren().add(btVec);
 	// -----------------------------------------------	
 		
 		Group root = new Group();
@@ -127,11 +137,15 @@ public class MainScene {
 		GridPane.setConstraints(advancedFunctionsBt, 1, 3);
 		GridPane.setConstraints(eigsBt, 2, 3);
 		
+		//Row 5
+		GridPane.setConstraints(vecBt, 1, 4);
+		
 		// GridPane add Children
 		gp.getChildren().addAll(
 				l_sceneTitle, l_parseExample,
 				parseBox, parseBt, parseOut,
-				basicArithmeticBt, advancedFunctionsBt, eigsBt
+				basicArithmeticBt, advancedFunctionsBt, eigsBt,
+				vecBt
 				);
 		
 		root.getChildren().add(gp);
